@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN" element::-webkit-scrollbar {display:none}>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+		<meta charset="utf-8">
+		<title>DIY装机导航 - 在线装机工具箱 </title>
+		<meta name="keywords" content="在线装机、装机导航、DIY装机、在线装机工具箱、工具箱、工具">
+		<meta name="description" content="本站为广大网友提供DIY装机导航">
+		<link rel="icon" href="./assets/img/pc.png" type="image/x-icon">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-touch-fullscreen" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="full-screen" content="yes">
+		<meta name="browsermode" content="application">
+		<meta name="x5-fullscreen" content="true">
+		<meta name="x5-page-mode" content="app">
+		<meta name="lsvn" content="aHRtbA==">
+		<meta name="author" content="LyLme">
+		<script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-2-M/jquery/3.5.1/jquery.min.js"
+			type="application/javascript"></script>
+		<link href="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/4.5.3/css/bootstrap.min.css"
+			type="text/css" rel="stylesheet">
+		<link rel="stylesheet" href="./assets/css/fontawesome-free5.13.0.css" type="text/css">
+		<link rel="stylesheet" href="./assets/css/style.css" type="text/css">
+		<link rel="stylesheet" href="./assets/css/font.css" type="text/css">
+		<script type="text/javascript" src="./assets/js/mayiui.js"></script>
+		<link rel="stylesheet" href="./assets/css/mayiui.css">
+		<style>
+			.box {
+				color: #FF0000;
+			}
+		</style>
+	</head>
+	<body onload="FocusOnInput()">
+		<div class="banner-video"><img src="https://cn.bing.com/th?id=OHR.AmazonEcuador_EN-US2195278379_UHD.jpg" />
+			<div class="bottom-cover"
+				style="background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, rgb(244 248 251 / 0.6) 50%, rgb(244 248 251) 100%);">
+			</div>
+		</div>
+		
+		<!--弹窗开始-->
+		<script>
+			mayiui.msg('请将本站添加到书签栏（快捷键Ctrl+D），方便下次访问；显示书签栏快捷键Ctrl+Shift+B', {
+				maskClickClose: true,
+				time: 3000
+			});
+		</script>
+		<!--弹窗结束-->
+		
+		<!--topbar开始-->
+		<nav class="navbar navbar-expand-lg navbar-light fixed-top" style="position: absolute; z-index: 10000;">
+			<button class="navbar-toggler collapsed" style="border: none; outline: none;" type="button"
+				data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<svg class="icon" width="200" height="200">
+					<use xlink:href="#icon-menus"></use>
+				</svg>
+				<span><svg class="bi bi-x" fill="currentColor" id="x">
+						<use xlink:href="#icon-closes"></use>
+					</svg><span></button>
+			<div class="collapse navbar-collapse" id="navbarsExample05">
+				<ul class="navbar-nav mr-auto">
+					<!-- 顶部导航开始-->
+					<li class="nav-item"><a class="nav-link" href="./assets/about.html">关于本站</a></li>
+					<li class="nav-item"><a class="nav-link" href="https://topic.expreview.com/CPU/">CPU天梯图</a></li>
+					<li class="nav-item"><a class="nav-link" href="https://topic.expreview.com/GPU/">显卡天梯图</a></li>
+					<li class="nav-item"><a class="nav-link" href="https://www.testufo.com/">显卡天梯图</a></li>
+					<li class="nav-item"><a class="nav-link" href="https://screen.bmcx.com/#welcome">屏幕检测</a></li>
+					<li class="nav-item"><a class="nav-link" href="https://test.ustc.edu.cn/">测速网</a></li>
+					<li class="nav-item"><a class="nav-link" href="https://www.zfrontier.com/lab/keyboardTester">键盘测试</a></li>
+					<li class="nav-item"><a class="nav-link" href="https://www.mousetester.cn/">鼠标测试</a></li>
+					<li class="nav-item"><a class="nav-link" href="https://checkcps.com/zh-cn/">点击测试</a></li>
+					<li class="nav-item"><a class="nav-link" href="https://www.gobing.cn/experiment/key">手柄测试</a></li>
+					<li class="nav-item"><a class="nav-link" href="https://bing.212001.xyz/">Bing壁纸</a></li>
+					<!-- 顶部结束-->
+
+					<!-- 天气开始 -->
+					<div id="he-plugin-simple"></div>
+					<script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script>
+					<!-- 天气结束 -->
+				</ul>
+				<div id="main">
+					<div id="show_date"></div><!-- 日期显示 -->
+					<div id="show_time"></div><!-- 时间显示 -->
+				</div>
+			</div>
+		</nav>
+		<!--topbar结束-->
+
+		<div class="container" style="margin-top:10vh; position: relative; z-index: 100;">
+			<h2 class="title">装机，从这里开始！</h2>
+			<div id="show_time"></div><!-- 首页提示文字-->
+
+			<!--搜索开始-->
+			<div id="search" class="s-search">
+				<div id="search-list" class="hide-type-list">
+					<div class="search-group group-a s-current" style=" margin-top: 50px;">
+						<ul class="search-type">
+							<li>
+								<input hidden="" checked="" type="radio" name="type" id="type-bi"
+									value="https://www.baidu.com/s?tn=15007414_1_dg&ie=utf-8&wd="
+									data-placeholder="百度一下，寻找更多软件">
+								<label for="type-bi" style="font-weight:600">
+									<img src="./assets/img/baidu.png">
+									<span style="color:#696a6d">
+										百度搜索
+									</span>
+								</label>
+							</li>
+						</ul>
+					</div>
+				</div>
+								<form action="https://fanyi.baidu.com/#zh/en/" method="get" target="_blank" id="super-search-fm">
+									<input type="text" id="search-text" placeholder="自动检测语言" style="outline:0"
+										autocomplete="off">
+									<button class="submit" type="submit">
+										<svg style="width: 22px; height: 22px; margin: 0 20px 0 20px; color: #fff;" class="icon"
+											aria-hidden="true">
+											<use xlink:href="#icon-sousuo"></use>
+										</svg><span>
+									</button>
+									<ul id="word" style="display: none;"></ul>
+								</form>
+				<div class="set-check hidden-xs">
+					<input type="checkbox" id="set-search-blank" class="bubble-3" autocomplete="off">
+				</div>
+			</div>
+			<!--搜索结束-->
+			
+			<!-- 链接开始-->
+			<ul class="mylist row">
+				<li class="title"><svg class="icon" aria-hidden="true">
+						<use xlink:href="#icon-remen"></use>
+					</svg>机友必备</li>
+					
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://www.nvidia.cn/drivers/lookup/" target="_blank"><img src="./assets/img/yingweida.png"><span>英伟达驱动</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://www.amd.com/zh-cn/support/download/drivers.html" target="_blank"><img src="./assets/img/amd.png"><span>AMD驱动</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://www.intel.cn/content/www/cn/zh/download-center/home.html/" target="_blank"><img src="./assets/img/intel.png"><span>intel驱动</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://www.tbtool.cn/" target="_blank"><img src="https://www.tbtool.cn/resource/icon.ico"><span>图吧工具箱</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://gamepp.com/" target="_blank"><img src="./assets/img/++.png"><span>游戏加加（测帧数）</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://www.7-zip.org/" target="_blank"><img src="./assets/img/7zip.png"><span>7-zip</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://uuyc.163.com/" target="_blank"><img src="https://uuyc.res.netease.com/pc/gw/20241129172408/img/icon_23c853e7.jpg"><span>UU远程</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://m1.mudvod.tv/" target="_blank"><img src="./assets/img/niba.jpeg"><span>xxx</span></a></li>
+
+				<li class="title">工具</li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://filehelper.weixin.qq.com/" target="_blank"><img src="./assets/img/v.png"><span>微信文件传输助手</span></a></li>
+			</ul>
+			<!-- 链接结束-->
+			
+			<script type="text/javascript">
+				< script src = "https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/4.5.3/js/bootstrap.min.js"
+				type = "application/javascript" >
+			</script>
+			<script src="./assets//js/script.js"></script>
+			<script src="./assets//js/svg.js"></script>
+			<div style="display:none;" class="back-to" id="toolBackTop">
+				<a title="返回顶部" onclick="window.scrollTo(0,0);return false;" href="#top" class="back-top"></a>
+			</div>
+			<div class="mt-5 mb-3 footer text-muted text-center">
+				Copyright © Paper Airplane
+			</div>
+</html>
