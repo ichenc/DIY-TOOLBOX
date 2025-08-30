@@ -1,1 +1,0 @@
-(function hitokoto(){var hitokoto="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto";var dom=document.querySelector('#hitokoto');Array.isArray(dom)?dom[0].innerText=hitokoto:dom.innerText=hitokoto;})()
