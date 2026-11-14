@@ -1,3 +1,6 @@
+@font-face{font-family:"Micro";src:url("MicroExtendFLF.ttf") format("truetype");font-display:swap}
+.clock{font-family:"Micro",system-ui,-apple-system,"Segoe UI",sans-serif;text-align:center;font-weight:bold;font-size:30px;color:#fff;text-shadow:1px 1px 2px #000}
+#show_date{text-align:center;font-size:16px;color:#fff;font-weight:bold;margin:10px}
 a:hover{text-decoration:none !important;font-weight:bold !important}
 a.icp{font-size:12px;color:#bbb;text-align:center}
 .navbar .navbar-expand-lg .navbar-light .fixed-top{position:absolute;z-index:10000}
@@ -5,9 +8,6 @@ a.icp{font-size:12px;color:#bbb;text-align:center}
 .navbar-light .navbar-toggler{color:#fff !important}
 p.content{text-align:center;padding:5px 30px;border-radius:10px;font-size:12px;color:#fff;font-weight:500}
 ::-webkit-scrollbar{display:none}
-.back-to{bottom:55px;overflow:hidden;position:fixed;right:10px;width:110px;z-index:999}
-.back-to .back-top{background:url("./images/top.png") no-repeat scroll 0 0 transparent;display:block;float:right;height:50px;margin-left:10px;outline:0 none;text-indent:-9999em;width:50px}
-.back-to .back-top:hover{background-position:-50px 0}
 .mylist li.col-3 img{display:block;width:45px;height:45px;padding:8px;background:#fff;border:1px solid #eee;border-radius:10px;margin:0 auto}
 h2.title{text-align:center;color:#fff;font-size:36px;font-weight:600;text-shadow:1px 1px 8px #504b4b}
 body{font-size:14px;background:#f4f8fb;overflow-x:hidden}
@@ -45,7 +45,7 @@ svg.icon{width:14px;height:14px;margin:0 5px 0 8px;vertical-align:-0.15em;fill:c
 .search-type li label{display:inline-block;padding:0 11px;font-size:14px;border-radius:3px 3px 0 0;cursor:pointer}
 .search-type input:checked+label,.search-type input:hover+label{background-color:#fff;height:50px;border-radius:10px}
 #search-text::-webkit-input-placeholder{color:#bbb}
-#word{position:absolute;list-style:none;top:55px;left:0px;width:100%;background:rgba(259,259,259,0.9);border-radius:5px;z-index:20000;padding:15px 10px;box-shadow:0 0 10px #aaa}
+#word{position:absolute;list-style:none;top:55px;left:0px;width:100%;background:rgba(255,255,255,0.9);border-radius:5px;z-index:20000;padding:15px 10px;box-shadow:0 0 10px #aaa}
 #word li{height:35px;padding:0 5px;text-indent:30px;background-size:20px;line-height:35px;cursor:pointer;font-size:16px;border-radius:5px}
 #word li:hover{background-color:#ddd}
 .set-check{margin-top:3px;font-size:9pt}
@@ -61,17 +61,20 @@ svg.icon{width:14px;height:14px;margin:0 5px 0 8px;vertical-align:-0.15em;fill:c
 .mylist li.title{width:100%;min-width:auto;margin:0;height:35px;font-size:16px;line-height:33px;padding:0 20px 0 10px;border-bottom:1px solid #eee;margin-bottom:10px}
 .banner-video{position:absolute;width:100%;overflow:hidden;left:0;top:0;height:100vh}
 .banner-video video{width:2048px;float:left}
-.banner-video img{object-fit:cover;width:100%;height:100vh}
+.banner-video picture{display:block;width:100%;height:100vh}
+.banner-video img{object-fit:cover;width:100%;height:100vh;display:block}
 .bottom-cover{width:100%;height:50%;position:absolute;bottom:-1px;z-index:10}
 @media screen and (min-width:1200px){.mylist li.col-3{min-width:132px}
 }@media screen and (min-width:992px) and (max-width:1200px){.mylist li.col-3{min-width:110px}
 }@media screen and (max-width:992px){#he-plugin-simple{display:none !important}
 .banner-video video{width:1200px}
-.banner-video img{object-fit:cover;width:100%;height:100vh}
+.banner-video picture{display:block;width:100%;height:100vh}
+.banner-video img{object-fit:cover;width:100%;height:100vh;display:block}
 .search-group{padding-left:0px}
 div#navbarsExample05{background:rgba(0,0,0,0.8);padding:10px 30px;border-radius:20px}
 }@media screen and (max-width:767px){.banner-video video{width:960px}
-.banner-video img{object-fit:cover;width:100%;height:100vh}
+.banner-video picture{display:block;width:100%;height:100vh}
+.banner-video img{object-fit:cover;width:100%;height:100vh;display:block}
 .s-type-list label{padding:5px 0}
 .search-list{height:30px;overflow-y:hidden;white-space:nowrap}
 .search-group{padding-left:0px}
@@ -91,3 +94,8 @@ div#navbarsExample05{background:rgba(0,0,0,0.8);padding:10px 30px;border-radius:
 ::-webkit-scrollbar-thumb{background:#ddd;border-radius:0px}
 ::-webkit-scrollbar-thumb:hover{background:#ccc}
 ::-webkit-scrollbar-corner{background:#ddd}
+/* 返回顶部：纯 CSS 绘制，省掉 base64 图片与 jQuery 插件 */
+#toTop{position:fixed;right:10px;bottom:66px;width:45px;height:45px;z-index:999;border-radius:50%;background:#fff;border:1px solid #d8d8d8;box-shadow:0 2px 8px rgba(0,0,0,.12);box-sizing:border-box;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .25s ease,transform .25s ease,visibility .25s}
+#toTop::after{content:"";position:absolute;left:50%;top:50%;width:10px;height:10px;margin:-3px 0 0 -5px;border-left:2px solid #999;border-top:2px solid #999;transform:rotate(45deg)}
+#toTop.is-visible{opacity:.9;visibility:visible;transform:translateY(0)}
+#toTop:hover{opacity:1;background:#f6f8fa}

@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="zh-CN" element::-webkit-scrollbar {display:none}>
+<html lang="zh-CN">
 	<head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"/>
 		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1"/>
 		<title>DIY装机导航 - 在线装机工具箱 </title>
 		<meta name="keywords" content="在线装机、装机导航、DIY装机、在线装机工具箱、工具箱、工具">
 		<meta name="description" content="DIY装机导航 - 在线装机工具箱致力于简洁高效无广告的DIY装机导航和搜索入口，沉淀最具价值链接，全站无商业推广，简约而不简单。">
-		<link rel="icon" href="./assets/img/pc.png" type="image/x-icon">	
+		<link rel="icon" href="./assets/img/pc.png" type="image/png">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-touch-fullscreen" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -15,25 +14,39 @@
 		<meta name="browsermode" content="application">
 		<meta name="x5-fullscreen" content="true">
 		<meta name="x5-page-mode" content="app">
-		<meta name="lsvn" content="aHRtbA==">
 		<meta name="author" content="LyLme">
-		<script src="./assets/js/jquery.min.js" type="application/javascript"></script>
-		<link href="./assets/css/bootstrap.min.css" type="text/css" rel="stylesheet">
-		<link rel="stylesheet" href="./assets/css/fontawesome-free5.13.0.css" type="text/css">	
-		<link rel="stylesheet" href="./assets/css/style.css" type="text/css">
-		<link rel="stylesheet" href="./assets/css/font.css" type="text/css">
 
+		<!-- 首屏大图预加载：只取当前屏幕需要的尺寸，桌面 235KB / 手机 91KB -->
+		<link rel="preload" as="image" type="image/webp"
+			imagesrcset="./assets/img/banner-960.webp 960w, ./assets/img/banner-1280.webp 1280w, ./assets/img/banner-1920.webp 1920w"
+			imagesizes="100vw" fetchpriority="high">
+		<link rel="preconnect" href="https://widget.qweather.net" crossorigin>
+		<link rel="preconnect" href="https://suggestion.baidu.com">
+
+		<link href="./assets/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+		<link rel="stylesheet" href="./assets/css/style.css" type="text/css">
+		<script src="./assets/js/app.js" defer></script>
 	</head>
-    <body onload="FocusOnInput()"><div class="banner-video"><img src="https://cn.bing.com/th?id=OHR.AmazonEcuador_EN-US2195278379_UHD.jpg" />
+<body>
+<!-- 图标精灵：只保留页面实际用到的 16 个图标（原 svg.js 为 200KB / 101 个图标） -->
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden"><symbol id="icon-bili" viewBox="0 0 1024 1024"><path d="M403.2 662.4H400c-27.2 0-49.6-22.4-49.6-49.6v-78.4c0-27.2 22.4-49.6 49.6-49.6h3.2c27.2 0 49.6 22.4 49.6 49.6v78.4c0 27.2-22.4 49.6-49.6 49.6zM617.6 662.4h-3.2c-27.2 0-49.6-22.4-49.6-49.6v-78.4c0-27.2 22.4-49.6 49.6-49.6h3.2c27.2 0 49.6 22.4 49.6 49.6v78.4c1.6 27.2-20.8 49.6-49.6 49.6z" fill="#00A1D6" ></path><path d="M732.16 271.36h-10.24l37.54666667-37.54666667c22.18666667-22.18666667 22.18666667-56.32 0-78.50666666-22.18666667-22.18666667-56.32-22.18666667-78.50666667 0l-114.34666667 114.34666666h-112.64l-114.34666666-114.34666666c-22.18666667-22.18666667-56.32-22.18666667-78.50666667 0-22.18666667 22.18666667-22.18666667 56.32 0 78.50666666l37.54666667 37.54666667h-10.24c-105.81333333 0-192.85333333 81.92-192.85333334 184.32v250.88c0 102.4 85.33333333 184.32 192.85333334 184.32H733.86666667c105.81333333 0 192.85333333-81.92 192.85333333-184.32V455.68c-3.41333333-102.4-88.74666667-184.32-194.56-184.32z m92.16 435.2c0 46.08-40.96 85.33333333-92.16 85.33333333H285.01333333c-51.2 0-92.16-37.54666667-92.16-85.33333333V455.68c0-46.08 40.96-85.33333333 92.16-85.33333333h445.44c51.2 0 92.16 37.54666667 92.16 85.33333333v250.88z" fill="#00A1D6" ></path></symbol><symbol id="icon-bing" viewBox="0 0 1024 1024"><path d="M213.52928354 45.96622222v828.50449423l192.62729481 103.56306133L886.68918517 709.80544831v-211.78646164L460.52718576 354.06633127l83.3682655 201.43015465L676.45616946 615.56306132 405.12094814 766.76513185V111.72876683L213.52928354 45.96622222" fill="#04867e" ></path></symbol><symbol id="icon-closes" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M11.854 4.146a.5.5 0 010 .708l-7 7a.5.5 0 01-.708-.708l7-7a.5.5 0 01.708 0z"></path><path fill-rule="evenodd" d="M4.146 4.146a.5.5 0 000 .708l7 7a.5.5 0 00.708-.708l-7-7a.5.5 0 00-.708 0z"></path></symbol><symbol id="icon-csdn" viewBox="0 0 1025 1024"><path d="M512 0c282.784 0 512 229.216 512 512s-229.216 512-512 512S0 794.784 0 512 229.216 0 512 0z m189.952 752l11.2-108.224c-31.904 9.536-100.928 16.128-147.712 16.128-134.464 0-205.728-47.296-195.328-146.304 11.584-110.688 113.152-145.696 232.64-145.696 54.784 0 122.432 8.8 151.296 18.336L768 272.704C724.544 262.24 678.272 256 599.584 256c-203.2 0-388.704 94.88-406.4 263.488C178.336 660.96 303.584 768 535.616 768c80.672 0 138.464-6.432 166.336-16z" fill="#CE000D" p-id="6235"></path></symbol><symbol id="icon-fanyi" viewBox="0 0 1024 1024"><path d="M608 416h288c35.36 0 64 28.48 64 64v416c0 35.36-28.48 64-64 64H480c-35.36 0-64-28.48-64-64v-288H128c-35.36 0-64-28.48-64-64V128c0-35.36 28.48-64 64-64h416c35.36 0 64 28.48 64 64v288z m0 64v64c0 35.36-28.48 64-64 64h-64v256.032c0 17.664 14.304 31.968 31.968 31.968H864a31.968 31.968 0 0 0 31.968-31.968V512a31.968 31.968 0 0 0-31.968-31.968H608zM128 159.968V512c0 17.664 14.304 31.968 31.968 31.968H512a31.968 31.968 0 0 0 31.968-31.968V160A31.968 31.968 0 0 0 512.032 128H160A31.968 31.968 0 0 0 128 159.968z m64 244.288V243.36h112.736V176h46.752c6.4 0.928 9.632 1.824 9.632 2.752a10.56 10.56 0 0 1-1.376 4.128c-2.752 7.328-4.128 16.032-4.128 26.112v34.368h119.648v156.768h-50.88v-20.64h-68.768v118.272H306.112v-118.272H238.752v24.768H192z m46.72-122.368v60.48h67.392V281.92H238.752z m185.664 60.48V281.92h-68.768v60.48h68.768z m203.84 488H576L668.128 576h64.64l89.344 254.4h-54.976l-19.264-53.664h-100.384l-19.232 53.632z m33.024-96.256h72.864l-34.368-108.608h-1.376l-37.12 108.608zM896 320h-64a128 128 0 0 0-128-128V128a192 192 0 0 1 192 192zM128 704h64a128 128 0 0 0 128 128v64a192 192 0 0 1-192-192z" fill="#1254f0" ></path></symbol><symbol id="icon-game00" viewBox="0 0 1025 1024"><path d="M878.216 480.486c-80.717 0-145.786 63.39-145.786 142.026 0 78.634 65.07 142.026 145.786 142.026S1024 701.146 1024 622.512c-0.824-78.636-65.89-142.026-145.784-142.026z m68.361-85.86C890.57 189.212 704.426 51.197 482.044 51.197c-221.56 0-408.526 137.211-465.358 342.628C-40.146 599.241 51.279 807.064 244.01 911.38c192.733 105.112 425.825 73.017 580.668-78.638l-343.46-321.763 465.358-116.352zM406.27 261.428c0-48.948 40.357-89.067 88.951-89.067 49.42 0 88.955 40.12 88.955 89.067 0 48.949-40.36 89.068-88.955 89.068-48.594-0.801-88.951-40.12-88.951-89.068z" fill="#1296db" p-id="4273"></path></symbol><symbol id="icon-gg00" viewBox="0 0 1025 1024"><path d="M281.977144 775.178668H0v-526.357336h281.977144z m-206.783239-75.193905h131.589334v-375.969526H75.193905z" fill="#1262B3" p-id="3260"></path><path d="M733.140576 1024l-526.357337-263.178668V263.178668L733.140576 0zM281.977144 714.342099l375.969526 187.984763V121.673138l-375.969526 187.984763z" fill="#1262B3" p-id="3261"></path><path d="M902.326862 474.403047h150.387811v75.193906H902.326862zM798.610969 167.23007l130.238193-75.193905 37.596953 65.120272-130.238194 75.193905zM800.960778 857.400854l37.596953-65.120272 130.239368 75.193905-37.596952 65.120272z" fill="#FF584D" p-id="3262"></path></symbol><symbol id="icon-google00" viewBox="0 0 1025 1024"><path d="M213.1976 515.482c0-33.485 5.632-65.588 15.616-95.693L53.4536 287.155A511.053 511.053 0 0 0 0.0016 515.482c0 82.048 19.2 159.436 53.35 228.147L228.6606 610.765c-10.24-30.72-15.437-62.9-15.463-95.283" fill="#FBBC05" p-id="2478"></path><path d="M521.2426 210.944a303.36 303.36 0 0 1 191.872 67.891l151.629-149.913C772.3536 49.306 653.9006 0.077 521.2436 0.077c-205.978 0-383.028 116.659-467.79 287.078L228.9416 419.79c40.397-121.498 155.597-208.87 292.352-208.87" fill="#EA4335" p-id="2479"></path><path d="M523.4706 813.235c-137.473 0-253.236-86.81-293.889-207.565L53.3256 737.51c85.172 169.37 263.092 285.261 470.144 285.261 127.719 0 249.677-44.39 341.248-127.641L697.3706 768.46c-47.18 29.108-106.65 44.8-173.952 44.8" fill="#34A853" p-id="2480"></path><path d="M1023.4376 510.618c0-30.26-4.787-62.874-11.904-93.133H523.4186v197.888h280.935c-14.004 67.481-52.224 119.347-106.957 153.088L864.7176 895.13c96.18-87.373 158.72-217.55 158.72-384.512" fill="#4285F4" p-id="2481"></path></symbol><symbol id="icon-icon_baidulogo" viewBox="0 0 1024 1024"><path d="M184.682058 538.758771c111.176877-23.873478 96.029086-156.736593 92.70169-185.775677-5.444828-44.768588-58.101436-123.020542-129.605526-116.831122-89.979276 8.074168-103.125977 138.051991-103.125977 138.051991-12.169424 60.079258 29.132158 188.451554 140.029813 164.554808z m118.064352 231.102709c-3.25759 9.330667-10.51736 33.227413-4.234867 54.029449 12.402109 46.676604 52.912561 48.770769 52.912562 48.770769h58.217778V730.351572h-62.336302c-28.01527 8.35339-41.534266 30.155972-44.559171 39.509908z m88.280676-453.898564c61.405563 0 111.037266-70.666424 111.037266-158.039629 0-87.280131-49.631703-157.923287-111.037266-157.923287-61.312489 0-111.060534 70.643156-111.060534 157.923287 0 87.373205 49.771314 158.039629 111.060534 158.039629z m264.469733 10.447555c82.067988 10.656971 134.840938-76.92565 145.33503-143.310671 10.703508-66.291947-42.25559-143.287402-100.357026-156.527177-58.217779-13.356117-130.908562 79.904017-137.540084 140.704599-7.911289 74.319578 10.633703 148.59262 92.56208 159.133249z m201.086348 390.212688s-126.976186-98.239593-201.109617-204.413743c-100.473368-156.550445-243.202327-92.841302-290.949282-13.216506-47.537539 79.601527-121.624432 129.954554-132.141792 143.287403-10.68024 13.123432-153.38593 90.165424-121.694237 230.870023 31.668424 140.611525 142.938375 137.935648 142.938374 137.935648s81.998182 8.074168 177.119797-13.216506c95.168151-21.104526 177.096528 5.25868 177.096528 5.258681s222.283948 74.435921 283.107798-68.851482c60.754045-143.333939-34.36757-217.653518-34.367569-217.653518z m-380.323578 213.255772h-144.520632c-62.406108-12.448646-87.256862-55.029995-90.39811-62.289765-3.071442-7.376113-20.802036-41.604072-11.424832-99.845119 26.968188-87.256862 103.870569-93.516088 103.870569-93.516088h76.92565v-94.563171l65.524087 1.000546v349.213597z m269.146701-1.000545h-166.299946c-64.453736-16.613707-67.455372-62.406108-67.455371-62.406108v-183.890929l67.455371-1.093619v165.276131c4.118524 17.63752 26.014179 20.825304 26.01418 20.825305h68.525722v-185.007817h71.760044v246.297037z m235.40738-490.988548c0-31.761498-26.386475-127.395019-124.230503-127.395019-98.006908 0-111.107071 90.258498-111.107072 154.060716 0 60.893656 5.142338 145.893474 126.883112 143.194329 121.787311-2.699146 108.454463-137.935648 108.454463-169.860026z m0 0" fill="#3245DF" ></path></symbol><symbol id="icon-kongzhitai" viewBox="0 0 1024 1024"><path d="M890 120H134a70 70 0 0 0-70 70v500a70 70 0 0 0 70 70h756a70 70 0 0 0 70-70V190a70 70 0 0 0-70-70z m-10 520a40 40 0 0 1-40 40H712V448a40 40 0 0 0-80 0v232h-80V368a40 40 0 0 0-80 0v312h-80V512a40 40 0 0 0-80 0v168H184a40 40 0 0 1-40-40V240a40 40 0 0 1 40-40h656a40 40 0 0 1 40 40zM696 824H328a40 40 0 0 0 0 80h368a40 40 0 0 0 0-80z" fill="#13227a" ></path></symbol><symbol id="icon-menus" viewBox="0 0 1024 1024"><path d="M901.632 896H122.368c-30.72 0-55.808-25.088-55.808-55.808v-1.536c0-30.72 25.088-55.808 55.808-55.808h779.776c30.72 0 55.808 25.088 55.808 55.808v1.536c-0.512 30.72-25.6 55.808-56.32 55.808zM901.632 568.32H122.368c-30.72 0-55.808-25.088-55.808-55.808v-1.536c0-30.72 25.088-55.808 55.808-55.808h779.776c30.72 0 55.808 25.088 55.808 55.808v1.536c-0.512 30.72-25.6 55.808-56.32 55.808zM901.632 240.64H122.368c-30.72 0-55.808-25.088-55.808-55.808v-1.536c0-30.72 25.088-55.808 55.808-55.808h779.776c30.72 0 55.808 25.088 55.808 55.808v1.536c-0.512 30.72-25.6 55.808-56.32 55.808z" p-id="3802" fill="#ffffff"></path></symbol><symbol id="icon-msg" viewBox="0 0 1024 1024"><path d="M515.998 55.996c-253.6 0-459.2 179.9-459.2 401.8 0 126.822 67.292 232.518 172.206 306.166l0 210.456 210.458-114.806 76.534 0c253.626 0 459.222-179.878 459.204-401.816C975.202 235.896 769.604 55.996 515.998 55.996zM286.382 515.206c-31.69 0-57.386-25.694-57.386-57.4 0-31.708 25.698-57.422 57.386-57.422 31.724 0 57.418 25.698 57.418 57.422S318.084 515.206 286.382 515.206zM515.988 515.206c-31.724 0-57.418-25.694-57.418-57.418s25.694-57.422 57.418-57.422 57.422 25.698 57.422 57.422S547.714 515.206 515.988 515.206zM745.622 515.206c-31.724 0-57.422-25.694-57.422-57.418s25.698-57.422 57.422-57.422c31.686 0 57.384 25.698 57.384 57.422S777.306 515.206 745.622 515.206z" fill="#36ab60" ></path></symbol><symbol id="icon-remen" viewBox="0 0 1024 1024"><path d="M423.477333 938.666667S45.045333 855.424 214.186667 442.282667c0 0 38.4 45.909333 33.12 68 0 0 30.101333-104.277333 95.072-166.570667C398.165333 290.186667 454.848 139.712 402.570667 85.333333c0 0 258.933333 54.378667 287.754666 326.378667 0 0 33.12-86.666667 101.12-95.232 0 0-20.906667 47.616 0 119.04 0 0 214.485333 367.146667-155.157333 491.242667 0 0 110.805333-125.813333-124.181333-341.717334 0 0-55.402667 115.626667-88.533334 156.373334-0.096 0.106667-92.522667 103.722667-0.096 197.248z" fill="#ff0033" ></path></symbol><symbol id="icon-sougou" viewBox="0 0 1024 1024"><path d="M225.28 628.053333c93.866667 25.6 174.08 47.786667 252.586667 69.973334 8.533333 1.706667 20.48 6.826667 29.013333 3.413333 34.133333-13.653333 66.56-29.013333 98.986667-44.373333-25.6-23.893333-46.08-54.613333-75.093334-68.266667-68.266667-32.426667-141.653333-52.906667-209.92-83.626667-52.906667-22.186667-90.453333-63.146667-85.333333-124.586666 5.12-61.44 47.786667-93.866667 102.4-110.933334 141.653333-40.96 281.6-22.186667 414.72 30.72 18.773333 6.826667 20.48 54.613333 34.133333 95.573334-93.866667-23.893333-163.84-47.786667-235.52-56.32-40.96-3.413333-83.626667 20.48-126.293333 32.426666 30.72 25.6 58.026667 58.026667 92.16 75.093334 66.56 34.133333 143.36 51.2 206.506667 90.453333 34.133333 20.48 66.56 73.386667 64.853333 109.226667-1.706667 37.546667-39.253333 88.746667-75.093333 104.106666-155.306667 69.973333-312.32 37.546667-460.8-27.306666-17.066667-5.12-17.066667-59.733333-27.306667-95.573334z" fill="#d81e06" ></path><path d="M684.373333 948.906667c-184.32 98.986667-445.44 17.066667-568.32-177.493334-131.413333-204.8-81.92-476.16 110.933334-622.933333 197.973333-150.186667 479.573333-122.88 641.706666 64.853333 151.893333 175.786667 151.893333 450.56-1.706666 609.28-54.613333-27.306667-13.653333-54.613333 1.706666-80.213333 163.84-273.066667-17.066667-626.346667-331.093333-640-174.08-6.826667-310.613333 66.56-392.533333 220.16-83.626667 153.6-69.973333 308.906667 34.133333 447.146667 107.52 141.653333 256 187.733333 430.08 157.013333 23.893333-5.12 49.493333 0 75.093333 0v22.186667zM720.213333 959.146667c46.08-32.426667 93.866667-64.853333 139.946667-98.986667 5.12 1.706667 11.946667 1.706667 17.066667 3.413333-5.12 18.773333-5.12 46.08-17.066667 54.613334-42.666667 25.6-75.093333 88.746667-136.533333 64.853333-1.706667-8.533333-3.413333-15.36-3.413334-23.893333z" fill="#d81e06" ></path></symbol><symbol id="icon-sousuo" viewBox="0 0 1024 1024"><path d="M950.820202 899.620202l-168.210101-168.080808c64.646465-74.731313 100.072727-169.115152 100.072727-268.8 0-109.89899-42.79596-213.20404-120.50101-290.779798S581.171717 51.329293 471.40202 51.329293c-109.89899 0-213.20404 42.79596-290.779798 120.50101-77.705051 77.705051-120.50101 181.010101-120.50101 290.779798 0 109.89899 42.79596 213.20404 120.50101 290.779798 77.705051 77.705051 181.010101 120.50101 290.779798 120.50101 90.763636 0 177.00202-29.220202 248.113132-83.135353l170.149494 170.149495c8.40404 8.40404 19.523232 12.670707 30.642425 12.670707s22.109091-4.266667 30.642424-12.670707c16.808081-16.937374 16.808081-44.347475-0.129293-61.284849z m-804.20202-437.010101c0-179.070707 145.713131-324.654545 324.654545-324.654545 179.070707 0 324.654545 145.713131 324.654546 324.654545 0.129293 179.070707-145.454545 324.783838-324.525253 324.783838S146.618182 641.680808 146.618182 462.610101z m0 0" fill="" ></path></symbol><symbol id="icon-zhihu" viewBox="0 0 1024 1024"><path d="M547.1456 564.7168s0-76.14613333-37.0976-80.05333333c-37.0976-3.9072-152.29333333 0-152.29333333 0V250.36586667h171.81653333s-1.952-78.10026667-35.1456-78.10026667H215.22026667l46.85866666-124.95786667s-70.29013333 3.9072-95.67146666 48.81173334-105.4336 269.44426667-105.4336 269.44426666 27.33546667 11.7152 72.24106666-21.47626666c44.90773333-33.1904 60.52586667-91.76853333 60.52586667-91.76853334l82.00426667-3.9072 1.952 238.20373334s-142.52906667-1.952-171.81653334 0c-29.28746667 1.952-44.90773333 80.05333333-44.90773333 80.05333333h216.72746667s-19.52746667 132.768-74.19413334 228.4416C146.88213333 890.78186667 41.44853333 966.92693333 41.44853333 966.92693333s76.14613333 31.23946667 150.34346667-11.7152c74.19413333-44.90773333 128.86506667-238.20373333 128.86506667-238.20373333l173.7728 216.72746667s15.6192-103.48053333-1.952-132.768c-19.52746667-29.28746667-121.056-146.4352-121.056-146.4352l-44.90773334 39.04746666 31.23946667-128.86506666h189.3888zM592.05333333 166.41066667l-1.952 704.84586666h70.29013334l25.38133333 87.86133334 123.00906667-87.86133334h173.7728V166.41066667H592.0576z m312.39466667 626.7456h-82.00426667l-103.48053333 80.05333333-23.42933333-80.05333333h-21.47626667V246.4608H904.448v546.69546667z" fill="#0084FF" ></path></symbol></svg>
+	<div class="banner-video">
+		<picture>
+			<source type="image/webp"
+				srcset="./assets/img/banner-960.webp 960w, ./assets/img/banner-1280.webp 1280w, ./assets/img/banner-1920.webp 1920w"
+				sizes="100vw">
+			<img src="./assets/img/banner-1920.jpg" width="1920" height="1080" alt=""
+				fetchpriority="high" decoding="async">
+		</picture>
 		<div class="bottom-cover" style="background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, rgb(244 248 251 / 0.6) 50%, rgb(244 248 251) 100%);"></div>
 	</div>
 	
 			<!--topbar开始-->
 			<nav class="navbar navbar-expand-lg navbar-light fixed-top" style="position: absolute; z-index: 10000;">
-			<!--<a class="navbar-brand" href="/"><img src="./assets/img/logo.png" height="25"  title="DIY装机导航 - 在线装机工具箱"></a>-->
-				<button class="navbar-toggler collapsed" style="border: none; outline: none;"type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">	    
+			<!--<a class="navbar-brand" href="/"><img loading="lazy" decoding="async" width="45" height="45" referrerpolicy="no-referrer" src="./assets/img/logo.png" height="25"  title="DIY装机导航 - 在线装机工具箱"></a>-->
+				<button class="navbar-toggler collapsed" style="border: none; outline: none;" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">	    
 				<svg class="icon" width="200" height="200"><use xlink:href="#icon-menus"></use></svg>
-				<span><svg class="bi bi-x" 	fill="currentColor" id="x"><use xlink:href="#icon-closes"></use></svg><span></button>
+				<span><svg class="bi bi-x" fill="currentColor" id="x"><use xlink:href="#icon-closes"></use></svg></span></button>
 				<div class="collapse navbar-collapse" id="navbarsExample05">
 					<ul class="navbar-nav mr-auto">
 					<!-- 顶部导航开始-->
@@ -51,12 +64,12 @@
 					<!-- 顶部导航结束-->
 						
 						<!-- 天气开始 -->
-					    <div id="he-plugin-simple"></div><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script>
+					    <div id="he-plugin-simple"></div><!-- 天气挂件脚本改为延迟加载，见页面底部 -->
 						<!-- 天气结束 -->
 					</ul>
 					<div id="main">
-						<div id="show_date"></div><!-- 日期显示 -->  
-						<div id="show_time"></div><!-- 时间显示 -->
+						<div id="show_date" data-date></div><!-- 日期显示 -->  
+						<div id="show_time" class="clock" data-clock></div><!-- 时间显示 -->
 					</div>	
 				</div>
 			</nav>
@@ -65,7 +78,7 @@
 		
 		
 		<!-- 首页提示文字开始-->
-		<div class="container" style="margin-top:10vh; position: relative; z-index: 100;"><h2 class="title">装机，从这里开始！</h2><div id="show_time"></div>
+		<div class="container" style="margin-top:10vh; position: relative; z-index: 100;"><h2 class="title">装机，从这里开始！</h2>
 		<!-- 首页提示文字结束-->
 	
 		<!--搜索开始-->
@@ -74,7 +87,7 @@
 				<div class="search-group group-a s-current" style=" margin-top: 50px;">
 					<ul class="search-type">
 						<li>
-							<input hidden=""  checked="" type="radio" name="type" id="type-baidu" value="https://www.baidu.com/s?word="data-placeholder="百度一下，你就知道">
+							<input hidden="" type="radio" name="type" id="type-baidu" value="https://www.baidu.com/s?word=" data-placeholder="百度一下，你就知道">
 							<label for="type-baidu" style="font-weight:600">
 							<svg class="icon" aria-hidden="true"><use xlink:href="#icon-icon_baidulogo"></use></svg>
 								<span style="color:#0c498c">
@@ -83,7 +96,7 @@
 							</label>
 						</li>
 						<li>
-						<input hidden=""  checked="" type="radio" name="type" id="type-sogou" value="https://www.sogou.com/web?query="data-placeholder="上网从搜狗开始">
+						<input hidden="" type="radio" name="type" id="type-sogou" value="https://www.sogou.com/web?query=" data-placeholder="上网从搜狗开始">
 						<label for="type-sogou" style="font-weight:600">
 						<svg class="icon" aria-hidden="true"><use xlink:href="#icon-sougou"></use></svg>
 							<span style="color:#696a6d">
@@ -92,7 +105,7 @@
 						</label>
 						</li>
 							<li>
-							<input hidden=""  checked="" type="radio" name="type" id="type-bing" value="https://cn.bing.com/search?q="data-placeholder="微软必应搜索">
+							<input hidden="" type="radio" name="type" id="type-bing" value="https://cn.bing.com/search?q=" data-placeholder="微软必应搜索">
 							<label for="type-bing" style="font-weight:600">
 							<svg class="icon" aria-hidden="true"><use xlink:href="#icon-bing"></use></svg>
 								<span style="color:#696a6d">
@@ -101,7 +114,7 @@
 							</label>
 						</li>
 							<li>
-							<input hidden=""  checked="" type="radio" name="type" id="type-zhihu" value="https://www.zhihu.com/search?q="data-placeholder="有问题，上知乎">
+							<input hidden="" type="radio" name="type" id="type-zhihu" value="https://www.zhihu.com/search?q=" data-placeholder="有问题，上知乎">
 							<label for="type-zhihu" style="font-weight:600">
 							<svg class="icon" aria-hidden="true"><use xlink:href="#icon-zhihu"></use></svg>
 								<span style="color:#0084fe">
@@ -110,7 +123,7 @@
 							</label>
 						</li>
 							<li>
-							<input hidden=""  checked="" type="radio" name="type" id="type-bilibili" value="https://search.bilibili.com/all?keyword="data-placeholder="(゜-゜)つロ 干杯~">
+							<input hidden="" type="radio" name="type" id="type-bilibili" value="https://search.bilibili.com/all?keyword=" data-placeholder="(゜-゜)つロ 干杯~">
 							<label for="type-bilibili" style="font-weight:600">
 							<svg class="icon" aria-hidden="true"><use xlink:href="#icon-bili"></use></svg>
 								<span style="color:#00aeec">
@@ -119,7 +132,7 @@
 							</label>
 						</li>
 							<li>
-							<input hidden=""  checked="" type="radio" name="type" id="type-google" value="https://www.google.com.hk/search?hl=zh-CN&q="data-placeholder="值得信任的搜索引擎">
+							<input hidden="" type="radio" name="type" id="type-google" value="https://www.google.com.hk/search?hl=zh-CN&q=" data-placeholder="值得信任的搜索引擎">
 							<label for="type-google" style="font-weight:600">
 							<svg class="icon" aria-hidden="true"><use xlink:href="#icon-google00"></use></svg>
 								<span style="color:#3B83FA">
@@ -128,7 +141,7 @@
 							</label>
 						</li>
 							<li>
-							<input hidden=""  checked="" type="radio" name="type" id="type-csdn" value="https://so.csdn.net/so/search?q="data-placeholder="CSDN搜索">
+							<input hidden="" type="radio" name="type" id="type-csdn" value="https://so.csdn.net/so/search?q=" data-placeholder="CSDN搜索">
 							<label for="type-csdn" style="font-weight:600">
 							<svg class="icon" aria-hidden="true"><use xlink:href="#icon-csdn"></use></svg>
 								<span style="color:#fc5531">
@@ -137,7 +150,7 @@
 							</label>
 						</li>
 							<li>
-							<input hidden=""  checked="" type="radio" name="type" id="type-fanyi" value="https://translate.google.cn/?hl=zh-CN&sl=auto&tl=zh-CN&text="data-placeholder="输入翻译内容（自动检测语言）">
+							<input hidden="" type="radio" name="type" id="type-fanyi" value="https://translate.google.cn/?hl=zh-CN&sl=auto&tl=zh-CN&text=" data-placeholder="输入翻译内容（自动检测语言）">
 							<label for="type-fanyi" style="font-weight:600">
 							<svg class="icon" aria-hidden="true"><use xlink:href="#icon-fanyi"></use></svg>
 								<span style="color:#0084fe">
@@ -151,7 +164,7 @@
 				<form action="https://www.baidu.com/s?wd=" method="get" target="_blank" id="super-search-fm">
 					<input type="text" id="search-text" placeholder="百度一下，你就知道" style="outline:0" autocomplete="off">
 					<button class="submit" type="submit">
-						<svg style="width: 22px; height: 22px; margin: 0 20px 0 20px; color: #fff;" class="icon" aria-hidden="true"><use xlink:href="#icon-sousuo"></use></svg><span>
+						<svg style="width: 22px; height: 22px; margin: 0 20px 0 20px; color: #fff;" class="icon" aria-hidden="true"><use xlink:href="#icon-sousuo"></use></svg>
 					</button>
 					<ul id="word" style="display: none;"></ul>
 				</form>
@@ -163,11 +176,11 @@
 
 <!-- 
 	链接格式：
-	<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="链接地址" target="_blank"><img src="图标地址" / ><span>链接名称</span></a></li>
+	<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="链接地址" target="_blank"><img src="图标地址" /><span>链接名称</span></a></li>
 	
 	分组格式：
 	<ul class="mylist row">
-		<li class="title"><img src="图标地址" / ><sapn>分组名称</sapn></li>
+		<li class="title"><img src="图标地址" /><sapn>分组名称</sapn></li>
 		分组下的链接.....
 	</ul>
 	
@@ -177,102 +190,100 @@
 <!-- 链接开始-->
 <ul class="mylist row">
 <li class="title"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-remen"></use></svg><sapn>机友必备</sapn></li>
-<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://www.itsk.com/"  target="_blank"><img src="https://www.itsk.com/favicon.ico"><span>IT天空</span></a></li>
-				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://www.ventoy.net/cn/download.html"  target="_blank"><img src="https://www.ventoy.net/favicon.ico"><span>Ventoy（启动U盘）</span></a></li>
-				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://pan.quark.cn/s/3732a263f9bc" target="_blank"><img src="./assets/img/ISO.png"><span>游戏镜像iso</span></a></li>
-				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow"href="https://cmwtat.cloudmoe.com/cn.html" target="_blank"><img src="./assets/img/ym.jpg"><span>系统激活</span></a></li>
-				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://www.tbtool.cn/" target="_blank"><img src="https://www.tbtool.cn/resource/icon.ico"><span>图吧工具箱</span></a></li>
-				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://www.7-zip.org/" target="_blank"><img src="./assets/img/7zip.png"><span>7-zip</span></a></li>
-				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://uuyc.163.com/"  target="_blank"><img src="https://uuyc.res.netease.com/pc/gw/20241129172408/img/icon_23c853e7.jpg"><span>UU远程</span></a></li>
-				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://www.hwinfo.com/"target="_blank"><img src="https://www.hwinfo.com/favicon.ico"><span>HWINFO</span></a></li>
+<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://www.itsk.com/"  target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/itsk-com.webp"><span>IT天空</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://www.ventoy.net/cn/download.html"  target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/ventoy-net.webp"><span>Ventoy（启动U盘）</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://pan.quark.cn/s/3732a263f9bc" target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/iso.webp"><span>游戏镜像iso</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow"href="https://cmwtat.cloudmoe.com/cn.html" target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/ym.webp"><span>系统激活</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://www.tbtool.cn/" target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/tbtool-cn.webp"><span>图吧工具箱</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://www.7-zip.org/" target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/7zip.webp"><span>7-zip</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://uuyc.163.com/"  target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/uuyc-res-netease-com.webp"><span>UU远程</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://www.hwinfo.com/"target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/hwinfo-com.webp"><span>HWINFO</span></a></li>
 				
-				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://www.aida64.com/"target="_blank"><img src="https://www.aida64.com/favicon.ico"><span>AIDA64</span></a></li>
-				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://geeks3d.com/furmark/"target="_blank"><img src="https://geeks3d.com/furmark/favicon.ico"><span>3D FurMark</span></a></li>
-				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://pan.quark.cn/s/c5be4e4ef898" target="_blank"><img src="./assets/img/vmware.png"><span>VMware 17Pro</span></a></li>
-				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://pan.quark.cn/s/39e6f64671b1" target="_blank"><img src="./assets/img/qudong.png"><span>驱动精灵（免安装）</span></a></li>
-				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://pan.quark.cn/s/72a66b51fa1d" target="_blank"><img src="./assets/img/yingpan.png"><span>硬盘低级格式化工具</span></a></li>
-				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://pan.quark.cn/s/a02eb3c8bc0e" target="_blank"><img src="./assets/img/c.png"><span>C盘清理工具</span></a></li>
-				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://pan.quark.cn/s/6cdf3167cc6e" target="_blank"><img src="./assets/img/gj.png"><span>Windows实用工具</span></a></li>
-				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://pan.quark.cn/s/3b8dd9aed0f1" target="_blank"><img src="./assets/img/gengxin.png"><span>禁止系统更新</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://www.aida64.com/"target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/aida64-com.webp"><span>AIDA64</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://geeks3d.com/furmark/"target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/geeks3d-com.webp"><span>3D FurMark</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://pan.quark.cn/s/c5be4e4ef898" target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/vmware.webp"><span>VMware 17Pro</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://pan.quark.cn/s/39e6f64671b1" target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/qudong.webp"><span>驱动精灵（免安装）</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://pan.quark.cn/s/72a66b51fa1d" target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/yingpan.webp"><span>硬盘低级格式化工具</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://pan.quark.cn/s/a02eb3c8bc0e" target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/c.webp"><span>C盘清理工具</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://pan.quark.cn/s/6cdf3167cc6e" target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/gj.webp"><span>Windows实用工具</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://pan.quark.cn/s/3b8dd9aed0f1" target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/gengxin.webp"><span>禁止系统更新</span></a></li>
 				
-				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://pan.quark.cn/s/6d14ad0ecdaa" target="_blank"><img src="./assets/img/weiruan.png"><span>常用运行库合集</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://pan.quark.cn/s/6d14ad0ecdaa" target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/weiruan.webp"><span>常用运行库合集</span></a></li>
 </ul>
 <ul class="mylist row">
 <li class="title"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-remen"></use></svg><sapn>驱动下载</sapn></li>
-<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow"href="https://www.nvidia.cn/drivers/lookup/" target="_blank"><img src="./assets/img/yingweida.png"><span>英伟达驱动</span></a></li>
-				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow"href="https://www.amd.com/zh-cn/support/download/drivers.html" target="_blank"><img src="./assets/img/amd.png"><span>AMD驱动</span></a></li>
-				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow"href="https://www.intel.cn/content/www/cn/zh/download-center/home.html/" target="_blank"><img src="./assets/img/intel.png"><span>intel驱动</span></a></li>
-				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow"href="https://www.logitechg.com/zh-cn/innovation/g-hub.html" target="_blank"><img src="https://www.logitechg.com/etc.clientlibs/gaming/clientlibs/gaming-replatform/resources/images/favicon.ico"><span>G-hub</span></a></li>
-				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow"href="https://cn.dareu.com/?m=home&c=Lists&a=index&tid=66" target="_blank"><img src="https://cn.dareu.com/favicon.ico"><span>达尔优驱动</span></a></li>
-				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow"href="https://wooting.io/zh-CN/wootility" target="_blank"><img src="https://wooting.io/zh-CN/favicon.ico"><span>Wooting驱动</span></a></li>
-				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow"href="https://thermalright.com.cn/downloads" target="_blank"><img src="https://thermalright.com.cn/w/img/icon.png"><span>利民驱动</span></a></li>
-				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow"href="https://www.aigo.com/download" target="_blank"><img src="https://www.aigo.com/favicon.ico"><span>爱国者驱动</span></a></li>
+<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow"href="https://www.nvidia.cn/drivers/lookup/" target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/yingweida.webp"><span>英伟达驱动</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow"href="https://www.amd.com/zh-cn/support/download/drivers.html" target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/amd.webp"><span>AMD驱动</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow"href="https://www.intel.cn/content/www/cn/zh/download-center/home.html/" target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/intel.webp"><span>intel驱动</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow"href="https://www.logitechg.com/zh-cn/innovation/g-hub.html" target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/logitechg-com.webp"><span>G-hub</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow"href="https://cn.dareu.com/?m=home&c=Lists&a=index&tid=66" target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/cn-dareu-com.webp"><span>达尔优驱动</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow"href="https://wooting.io/zh-CN/wootility" target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/wooting-io.webp"><span>Wooting驱动</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow"href="https://thermalright.com.cn/downloads" target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/thermalright-com-cn.webp"><span>利民驱动</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow"href="https://www.aigo.com/download" target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/aigo-com.webp"><span>爱国者驱动</span></a></li>
 				
-				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow"href="https://www.lovingcool.com/cn/col.jsp?id=104" target="_blank"><img src="https://28534886.s21i.faiusr.com/4/ABUIABAEGAAg9pHftwYo0fv8tAEwqgU4xQU.png"><span>雷利酷驱动</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow"href="https://www.lovingcool.com/cn/col.jsp?id=104" target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/28534886-s21i-faiusr-com.webp"><span>雷利酷驱动</span></a></li>
 </ul>
 <ul class="mylist row">
 <li class="title"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-msg"></use></svg><sapn>工具下载</sapn></li>
-				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://filehelper.weixin.qq.com/"target="_blank"><img src="./assets/img/v.png"><span>微信文件传输助手</span></a></li>
-				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://365.wps.cn/download365"target="_blank"><img src="https://365.wps.cn/favicon.ico"><span>Wps 365</span></a></li>
-				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://www.listary.com/download"target="_blank"><img src="https://cdn.prod.website-files.com/643e09c9f19df8579c420d9f/64ec15d75eb38b96eb59ffe3_Listary-favicon.png"><span>Listary（文件搜索）</span></a></li>
-				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://pixpin.cn/"target="_blank"><img src="https://pixpin.cn/favicon.ico"><span>PixPin（随心截图）</span></a></li>
-				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://www.everauto.net/cn/"target="_blank"><img src="https://365.wps.cn/favicon.ico"><span>zTasker（定时自动化）</span></a></li>
-				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow"href="https://www.67tool.com/client/#download" target="_blank"><img src="https://www.67tool.com/favicon.ico"><span>即时工具（全能工具）</span></a></li>
-				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://www.alipan.com/"target="_blank"><img src="https://www.alipan.com/favicon.ico"><span>阿里云盘</span></a></li>
-				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://up.woozooo.com/"target="_blank"><img src="https://up.woozooo.com/favicon.ico"><span>蓝奏云</span></a></li>
-				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://www.wenshushu.cn/"target="_blank"><img src="https://www.wenshushu.cn/favicon.ico"><span>文叔叔</span></a></li>
-				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://drive.google.com/"target="_blank"><img src="./assets/img/googledrive.png"><span>Google Drive</span></a></li>
-				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://www.airportal.cn/"target="_blank"><img src="https://www.airportal.cn/favicon.ico"><span>airportal</span></a></li>
-				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://www.crxsoso.com/"target="_blank"><img src="https://www.crxsoso.com/favicon.ico"><span>Crx SoSo</span></a></li>
-				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow"href="https://greasyfork.org/zh-CN/scripts" target="_blank"><img src="./assets/img/greasyfork.png"><span>Greasy Fork</span></a></li>
-				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://hamibot.com/"target="_blank"><img src="https://hamibot.com/favicon.ico"><span>Hamibot</span></a></li>
-				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://magiskcn.com/"target="_blank"><img src="https://magiskcn.com/wp-content/uploads/2021/05/favicon.ico"><span>Magisk</span></a></li>
-				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://pan.quark.cn/s/629690068b9d" target="_blank"><img src="./assets/img/jianying.png"><span>剪映国际版</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://filehelper.weixin.qq.com/"target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/v.webp"><span>微信文件传输助手</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://365.wps.cn/download365"target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/365-wps-cn.webp"><span>Wps 365</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://www.listary.com/download"target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/cdn-prod-website-files-com.webp"><span>Listary（文件搜索）</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://pixpin.cn/"target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/pixpin-cn.webp"><span>PixPin（随心截图）</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://www.everauto.net/cn/"target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/everauto-net.webp"><span>zTasker（定时自动化）</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow"href="https://www.67tool.com/client/#download" target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/67tool-com.webp"><span>即时工具（全能工具）</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://www.alipan.com/"target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/alipan-com.webp"><span>阿里云盘</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://up.woozooo.com/"target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/up-woozooo-com.webp"><span>蓝奏云</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://www.wenshushu.cn/"target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/wenshushu-cn.webp"><span>文叔叔</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://drive.google.com/"target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/googledrive.webp"><span>Google Drive</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://www.airportal.cn/"target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/airportal-cn.webp"><span>airportal</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://www.crxsoso.com/"target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/crxsoso-com.webp"><span>Crx SoSo</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow"href="https://greasyfork.org/zh-CN/scripts" target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/greasyfork.webp"><span>Greasy Fork</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://hamibot.com/"target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/hamibot-com.webp"><span>Hamibot</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://magiskcn.com/"target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/magiskcn-com.webp"><span>Magisk</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://pan.quark.cn/s/629690068b9d" target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/jianying.webp"><span>剪映国际版</span></a></li>
 </ul>
 
 
 <ul class="mylist row">
 	<li class="title"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-remen"></use></svg><sapn>NAS 相关</sapn></li>
-<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://fnos.net/"target="_blank"><img src="https://static2.fnnas.com/connect/favicon.ico"><span>飞牛 OS</span></a></li>
+<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://fnos.net/"target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/static2-fnnas-com.webp"><span>飞牛 OS</span></a></li>
 </ul>
 
 
 <ul class="mylist row">
 <li class="title"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-kongzhitai"></use></svg><sapn>社交</sapn></li>
-<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://weixin.qq.com/"target="_blank"><img src="./assets/img/weixin.png"><span>微信</span></a></li>
-				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://im.qq.com/index/"target="_blank"><img src="./assets/img/qq.png"><span>QQ</span></a></li>
-				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://www.yy.com/yy8"target="_blank"><img src="./assets/img/yy.png"><span>YY</span></a></li>
+<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://weixin.qq.com/"target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/weixin.webp"><span>微信</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://im.qq.com/index/"target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/qq.webp"><span>QQ</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://www.yy.com/yy8"target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/yy.webp"><span>YY</span></a></li>
 </ul>
 
 
 <ul class="mylist row">
 <li class="title"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-game00"></use></svg><sapn>常用软件</sapn></li>
-<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://www.google.cn/chrome/"target="_blank"><img src="./assets/img/chrome.png"><span>Chrome</span></a></li>
-				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://www.quark.cn/"target="_blank"><img src="https://gw.alicdn.com/imgextra/i3/O1CN018r2tKf28YP7ev0fPF_!!6000000007944-2-tps-48-48.png"><span>夸克</span></a></li>
-				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://music.163.com/#/download"target="_blank"><img src="http://p3.music.126.net/tBTNafgjNnTL1KlZMt7lVA==/18885211718935735.jpg"><span>网易云音乐</span></a></li>
-				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://listen1.github.io/listen1/"target="_blank"><img src="./assets/img/listen1.png"><span>Listen 1音乐</span></a></li>
-				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://bmh.163.com/"target="_blank"><img src="https://filmly.res.netease.com/website/img/ico_fdc6d2bc.png"><span>网易爆米花</span></a></li>
+<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://www.google.cn/chrome/"target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/chrome.webp"><span>Chrome</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://www.quark.cn/"target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/gw-alicdn-com.webp"><span>夸克</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://music.163.com/#/download"target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/p3-music-126-net.webp"><span>网易云音乐</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://listen1.github.io/listen1/"target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/listen1.webp"><span>Listen 1音乐</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://bmh.163.com/"target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/filmly-res-netease-com.webp"><span>网易爆米花</span></a></li>
 </ul>
 
 
 <ul class="mylist row">
 <li class="title"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-gg00"></use></svg><sapn>游戏相关</sapn></li>
-<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow"href="https://store.steampowered.com/about/" target="_blank"><img src="./assets/img/steam.png"><span>Steam</span></a></li>
-				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://www.wegame.com.cn/home"target="_blank"><img src="./assets/img/wegame.png"><span>Wegame</span></a></li>
-				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://www.ldmnq.com/"target="_blank"><img src="https://www.ldmnq.com/favicon.ico"><span>雷电模拟器</span></a></li>
-				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://mumu.163.com/"target="_blank"><img src="https://mumu.163.com/favicon.ico"><span>MUMU模拟器</span></a></li>
-				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://jiasu.qimiao.com/"target="_blank"><img src="https://jiasu.qimiao.com/favicon.ico"><span>奇妙加速器</span></a></li>
-				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow"href="https://www.yjwujian.cn/download/#/" target="_blank"><img src="https://www.yjwujian.cn/favicon.ico"><span>永劫无间</span></a></li>
-				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://steampp.net/"target="_blank"><img src="https://steampp.net/favicon.ico"><span>Watt Toolkit</span></a></li>
-				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://gamepp.com/"target="_blank"><img src="./assets/img/++.png"><span>游戏加加（测帧数）</span></a></li>
+<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow"href="https://store.steampowered.com/about/" target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/steam.webp"><span>Steam</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://www.wegame.com.cn/home"target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/wegame.webp"><span>Wegame</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://www.ldmnq.com/"target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/ldmnq-com.webp"><span>雷电模拟器</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://mumu.163.com/"target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/mumu-163-com.webp"><span>MUMU模拟器</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://jiasu.qimiao.com/"target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/jiasu-qimiao-com.webp"><span>奇妙加速器</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow"href="https://www.yjwujian.cn/download/#/" target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/yjwujian-cn.webp"><span>永劫无间</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://steampp.net/"target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/steampp-net.webp"><span>Watt Toolkit</span></a></li>
+				<li class="col-3 col-sm-3 col-md-3 col-lg-1"><a rel="nofollow" href="https://gamepp.com/"target="_blank"><img loading="lazy" decoding="async" width="45" height="45" src="./assets/img/icons/gamepp.webp"><span>游戏加加（测帧数）</span></a></li>
 </ul>
 <!-- 链接结束-->
 
-<script src="./assets/js/bootstrap.min.js" type="application/javascript"></script>
-<script src="./assets/js/script.js"></script>
-<script src="./assets/js/svg.js"></script>
-<div style="display:none;" class="back-to" id="toolBackTop"> 
-<a title="返回顶部" onclick="window.scrollTo(0,0);return false;" href="#top" class="back-top"></a> 
-</div> 
+<!-- 第三方天气挂件：defer 不影响首屏渲染，且此时 WIDGET 配置已就绪 -->
+<script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0" defer></script>
 <div class="mt-5 mb-3 footer text-muted text-center"><p class="footer">Copyright ©2025 <a href="/">DIY装机导航 - 在线装机工具箱 </a>. All Rights Reserved.</p></div>
+</div><!-- /.container -->
+</body>
 </html>

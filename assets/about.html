@@ -1,46 +1,193 @@
-<html lang="zh-cn">
-  <head>
-    <meta charset="UTF-8">
-    <title>关于DIY装机导航</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <link href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/docsify/4.12.2/themes/vue.min.css" type="text/css" rel="stylesheet">
-	<link rel="icon" href="./img/pc.png" type="image/x-icon">
-    <style>body:not(.ready){overflow:auto!important}#main{max-width:90%}p.footer{margin-top:60px}p.footer a{text-decoration:none}</style>
- </head>
- <body> 
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>关于本站 - DIY装机导航</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta name="description" content="DIY装机导航 - 在线装机工具箱，简洁高效无广告的DIY装机导航和搜索入口。">
+	<meta name="theme-color" content="#4e6ef2">
+	<link rel="icon" href="./img/pc.png" type="image/png">
+	<style>
+		:root{
+			--ink:#2b3445;
+			--ink-2:#5b667a;
+			--ink-3:#8a94a6;
+			--line:#e8edf3;
+			--brand:#4e6ef2;
+			--brand-soft:#eef1fe;
+			--bg:#f4f8fb;
+			--card:#fff;
+			--shadow:0 6px 24px rgba(108,132,168,.08);
+		}
+		*{box-sizing:border-box}
+		html{-webkit-text-size-adjust:100%}
+		body{
+			margin:0;background:var(--bg);color:var(--ink);
+			font:16px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+		}
+		a{color:var(--brand);text-decoration:none}
+		a:hover{text-decoration:underline}
 
-<div class="markdown-section" id="main">
-<h3>关于本站</h3>
-<p>感谢来访，本站致力于简洁高效的摸鱼导航和搜索入口，安全快捷。</p>
-<p>如果您喜欢我们的网站，请将本站添加到收藏夹（快捷键<code>Ctrl+D</code>），方便您的下次访问，感谢支持。<p>
-<p><div style="color:red;font-size:16px"><a class="nav-link" href="../index.html">回到首页</a></div><p>
-<hr>
-<h3>本站承诺</h3>
-<p><strong>绝对不会收集用户的隐私信息</strong><p>
-<p>区别于部分导航网站，本站链接直接跳转目标，不会对链接处理再后跳转，不会收集用户的隐藏信息，包括但不限于点击记录，访问记录和搜索记录，请放心使用</p>
-<hr>
- <h3>免责声明</h3>
-<li>本站仅用于学习交流，且不可用于商业行为，否则后果自负</li>
-<li>我们涉及的任何网站、链接，均收集自第三方，我们本身持中立态度，不修改、入侵任何第三方数据。</li>
-<li>为了维护更好的创作空间，建议从正规渠道购买，尊重版权，为创作鼓掌！</li>
-<hr>
-<h3>联系我们</h3>
-<p>若您在使用本站时遇到了包括但不限于以下问题：</p>
-<li>图标缺失</li>
-<li>目标网站无法打开</li>
-<li>描述错误</li>
-<li>网站违规</li>
-<li>接口失效</li>
-<li>链接删除</li>
-<p><strong>请发邮件与我们联系</strong></p>
-<h5>联系邮箱</h5>
-<p><a href="mailto:ichenc@163.com">ichenc@163.com</a></p>
-<h5>联系说明</h5>
-<p>为了您的问题能快速被处理，建议在邮件主题添加【反馈】【投诉】【推荐】【友链】</p>    <center>
-      <p class="footer">Copyright ©2025 <a href="/">DIY装机导航 - 在线装机工具箱 </a>.  All Rights Reserved.</p>
-    </center>
-  </div>
+		/* 顶部条 */
+		.topbar{
+			position:sticky;top:0;z-index:10;
+			display:flex;align-items:center;justify-content:space-between;gap:12px;
+			padding:14px 20px;background:rgba(244,248,251,.88);backdrop-filter:blur(8px);
+			border-bottom:1px solid var(--line);
+		}
+		.topbar .brand{display:flex;align-items:center;gap:9px;color:var(--ink);font-weight:600;font-size:15px}
+		.topbar .brand:hover{text-decoration:none;color:var(--brand)}
+		.topbar .brand img{width:22px;height:22px;border-radius:5px}
+		.back{
+			display:inline-flex;align-items:center;gap:6px;
+			padding:7px 14px;border:1px solid var(--line);border-radius:999px;
+			background:#fff;color:var(--ink-2);font-size:14px;transition:.2s;
+		}
+		.back:hover{border-color:var(--brand);color:var(--brand);text-decoration:none;box-shadow:0 4px 14px rgba(78,110,242,.14)}
+		.back svg{width:14px;height:14px;fill:currentColor}
+
+		.wrap{max-width:760px;margin:0 auto;padding:36px 18px 56px}
+
+		header.hero{margin:0 0 26px}
+		header.hero h1{margin:0 0 8px;font-size:30px;line-height:1.3;letter-spacing:.5px}
+		header.hero p{margin:0;color:var(--ink-3);font-size:14px}
+
+		.card{
+			background:var(--card);border-radius:16px;box-shadow:var(--shadow);
+			padding:24px 26px;margin-bottom:20px;
+		}
+		.card h2{
+			display:flex;align-items:center;gap:9px;
+			margin:0 0 14px;font-size:18px;font-weight:600;letter-spacing:.3px;
+		}
+		.card h2::before{
+			content:"";width:4px;height:17px;border-radius:2px;
+			background:linear-gradient(180deg,var(--brand),#7d93f7);
+		}
+		.card p{margin:0 0 12px;color:var(--ink-2)}
+		.card p:last-child{margin-bottom:0}
+		code{
+			padding:2px 7px;border-radius:6px;background:#f1f4f9;
+			border:1px solid var(--line);font-size:.86em;color:#465065;
+			font-family:ui-monospace,Menlo,Consolas,monospace;
+		}
+
+		/* 本站承诺 */
+		.promise{border-left:4px solid var(--brand)}
+		.promise strong{color:var(--ink);font-weight:600}
+		.hint{font-size:13px;color:var(--ink-3);margin-top:10px}
+
+		/* 列表 */
+		ul.plain,ol.plain{margin:0;padding-left:0;list-style:none;counter-reset:n}
+		ul.plain li,ol.plain li{position:relative;padding-left:24px;margin-bottom:10px;color:var(--ink-2)}
+		ul.plain li:last-child,ol.plain li:last-child{margin-bottom:0}
+		ul.plain li::before{
+			content:"";position:absolute;left:6px;top:.72em;width:6px;height:6px;border-radius:50%;
+			background:#c9d3e4;
+		}
+		ol.plain li{counter-increment:n}
+		ol.plain li::before{
+			content:counter(n);position:absolute;left:0;top:.15em;
+			width:17px;height:17px;line-height:17px;text-align:center;border-radius:50%;
+			background:var(--brand-soft);color:var(--brand);font-size:11px;font-weight:700;
+		}
+
+		/* 问题类型标签 */
+		.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px;padding:0;list-style:none}
+		.chips li{
+			padding:5px 13px;border-radius:999px;background:#f5f7fb;border:1px solid var(--line);
+			color:var(--ink-2);font-size:13px;
+		}
+
+		/* 邮箱 */
+		.mail{
+			display:inline-flex;align-items:center;gap:9px;
+			margin:4px 0 16px;padding:11px 20px;border-radius:12px;
+			background:var(--brand);color:#fff;font-size:15px;font-weight:600;
+			box-shadow:0 8px 20px rgba(78,110,242,.28);transition:.2s;word-break:break-all;
+		}
+		.mail:hover{background:#4262e0;text-decoration:none;transform:translateY(-1px);box-shadow:0 10px 24px rgba(78,110,242,.34)}
+		.mail svg{width:16px;height:16px;fill:currentColor;flex:none}
+
+		.note{font-size:13px;color:var(--ink-3)}
+		.note b{color:var(--ink-2);font-weight:600}
+
+		footer{margin-top:34px;text-align:center;font-size:12.5px;color:var(--ink-3);line-height:2}
+		footer a{color:var(--ink-3)}
+		footer a:hover{color:var(--brand)}
+
+		@media (max-width:600px){
+			.wrap{padding:22px 14px 40px}
+			header.hero h1{font-size:23px}
+			.card{padding:20px 18px;border-radius:14px}
+			.topbar{padding:12px 14px}
+			.topbar .brand span{display:none}
+		}
+	</style>
+</head>
+<body>
+
+<div class="topbar">
+	<a class="brand" href="../index.html">
+		<img src="./img/pc.png" alt="" width="22" height="22">
+		<span>DIY装机导航</span>
+	</a>
+	<a class="back" href="../index.html">
+		<svg viewBox="0 0 1024 1024" aria-hidden="true"><path d="M685 214a40 40 0 0 1 3 56L429 538l259 268a40 40 0 1 1-58 55L345 566a40 40 0 0 1 0-55l285-294a40 40 0 0 1 55-3z"/></svg>
+		返回首页
+	</a>
+</div>
+
+<div class="wrap">
+	<header class="hero">
+		<h1>关于本站</h1>
+		<p>简洁高效的 DIY 装机导航与搜索入口，无广告、无跳转</p>
+	</header>
+
+	<section class="card">
+		<h2>关于本站</h2>
+		<p>感谢来访，本站致力于简洁高效的摸鱼导航和搜索入口，安全快捷。</p>
+		<p>如果您喜欢我们的网站，请将本站添加到收藏夹（快捷键 <code>Ctrl+D</code>），方便您的下次访问，感谢支持。</p>
+	</section>
+
+	<section class="card promise">
+		<h2>本站承诺</h2>
+		<p><strong>绝对不会收集用户的隐私信息</strong></p>
+		<p>区别于部分导航网站，本站链接直接跳转目标，不会对链接处理再后跳转，不会收集用户的隐藏信息，包括但不限于点击记录，访问记录和搜索记录，请放心使用。</p>
+	</section>
+
+	<section class="card">
+		<h2>免责声明</h2>
+		<ol class="plain">
+			<li>本站仅用于学习交流，且不可用于商业行为，否则后果自负。</li>
+			<li>我们涉及的任何网站、链接，均收集自第三方，我们本身持中立态度，不修改、入侵任何第三方数据。</li>
+			<li>为了维护更好的创作空间，建议从正规渠道购买，尊重版权，为创作鼓掌！</li>
+		</ol>
+	</section>
+
+	<section class="card">
+		<h2>联系我们</h2>
+		<p>若您在使用本站时遇到了包括但不限于以下问题：</p>
+		<ul class="chips">
+			<li>图标缺失</li>
+			<li>目标网站无法打开</li>
+			<li>描述错误</li>
+			<li>网站违规</li>
+			<li>接口失效</li>
+			<li>链接删除</li>
+		</ul>
+		<p><strong>请发邮件与我们联系</strong></p>
+		<a class="mail" href="mailto:ichenc@163.com">
+			<svg viewBox="0 0 1024 1024" aria-hidden="true"><path d="M896 224H128a32 32 0 0 0-32 32v512a32 32 0 0 0 32 32h768a32 32 0 0 0 32-32V256a32 32 0 0 0-32-32zM512 576L176 320h672zM176 704V392l319 243a32 32 0 0 0 34 0l319-243v312z"/></svg>
+			ichenc@163.com
+		</a>
+		<p class="note"><b>联系说明：</b>为了您的问题能快速被处理，建议在邮件主题添加【反馈】【投诉】【推荐】【友链】。</p>
+	</section>
+
+	<footer>
+		Copyright ©2025 <a href="/">DIY装机导航 - 在线装机工具箱</a>. All Rights Reserved.
+	</footer>
+</div>
+
 </body>
-
 </html>
